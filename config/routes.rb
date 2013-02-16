@@ -1,4 +1,20 @@
 Feedbackhero::Application.routes.draw do
+  get "users/index"
+
+  get "users/show"
+
+  get "users/new"
+
+  get "roles/index"
+
+  get "roles/show"
+
+  get "roles/new"
+
+  devise_for :users
+  resources :users
+  resources :roles
+
   get "welcome/index"
 
   # The priority is based upon order of creation:
