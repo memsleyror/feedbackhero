@@ -1,7 +1,7 @@
 <h1>Users#index</h1>
 <p>Find me in app/views/users/index.html.erb</p>
 
-
+<%= link_to "New User", new_user_path %><br><br>
 	<table>
 		
 		<!--
@@ -22,6 +22,13 @@
 				<td><%= user.email %></td>
 				<td><%= user.role.role_name %></td>
 				<td><%= user.role_id %></td>
+				<% if can? :update, User %>
+					<td><%= link_to 'Edit', edit_user_path(user) %></td>
+				<% end %>
+				<% if can? :destroy, User %>
+					<td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+				<% end %>
 		</tr>
-	</table>
+	
 <% end %>	
+</table>

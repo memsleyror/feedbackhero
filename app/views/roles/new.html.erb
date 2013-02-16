@@ -1,2 +1,13 @@
-<h1>Roles#new</h1>
-<p>Find me in app/views/roles/new.html.erb</p>
+<%= form_for @role do |f| %>
+	<h1>Create a New Role</h1>
+	<p>
+		<label><%= f.label :role_name %></label>
+		<input type="text" placeholder="Enter role here"<%= f.text_field :role_name %>
+	</p>
+
+	<p>
+		<button type="submit" class="btn">Create</button>
+	</p>
+
+
+<% end %>

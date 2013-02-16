@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   belongs_to :role       
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :role_id
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :role_id, :id
   # attr_accessible :title, :body
 end

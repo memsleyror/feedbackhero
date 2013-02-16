@@ -1,17 +1,8 @@
 Feedbackhero::Application.routes.draw do
-  get "users/index"
+  
 
-  get "users/show"
-
-  get "users/new"
-
-  get "roles/index"
-
-  get "roles/show"
-
-  get "roles/new"
-
-  devise_for :users
+  devise_for :users, :path_prefix => 'my'
+  
   resources :users
   resources :roles
 
