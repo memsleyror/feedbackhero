@@ -1,0 +1,29 @@
+<h1>Give Feedback</h1>
+
+
+
+<%= form_for @feedback do |f| %>
+	<p>
+		<%= f.label "For" %><br/>
+		<%= f.collection_select :user_id, User.all, :id , :last_name %><br>
+		<%= f.label :situation %><br/>
+		<%= f.text_area :situation %><br/>
+		<%= f.label :positive %><br/>
+		<%= f.text_area :positive %><br/>
+		<%= f.label :growth_area %><br/>
+		<%= f.text_area :growth_area %><br/>
+
+		<%= f.hidden_field :from_user, :value => current_user.id %>
+		<%= f.hidden_field :hide, :value => true %>
+
+
+		
+		
+	</p>
+
+	<p>
+		<%= f.submit "Create" %>
+	</p>
+
+
+<% end %>

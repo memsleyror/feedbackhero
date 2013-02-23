@@ -1,0 +1,2 @@
+module MyviewHelper
+end

@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130216134710) do
+ActiveRecord::Schema.define(:version => 20130223144416) do
+
+  create_table "feedbacks", :force => true do |t|
+    t.integer  "from_user"
+    t.integer  "user_id"
+    t.boolean  "hide"
+    t.text     "situation"
+    t.text     "positive"
+    t.text     "growth_area"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "feedbacks", ["user_id"], :name => "index_feedbacks_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string   "role_name"

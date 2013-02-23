@@ -1,0 +1,8 @@
+<h1>Feedback Index</h1>
+
+<%= link_to "New Feedback", new_feedback_path %><br><br>
+
+<% @feedbacks.each do |feedback| %>
+	<%= feedback.user_id %><%= feedback.situation %><%= feedback.positive %><%= feedback.growth_area %><%= feedback.hide %><%= feedback.from_user %><br />
+
+<% end %>
