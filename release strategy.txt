@@ -1,0 +1,10 @@
+release strategy
+
+
+v1.0
+user signs up themselves
+they edit profile
+leave feedback for someone
+view my feedback
+global feed
+validate domain

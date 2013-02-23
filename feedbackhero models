@@ -1,0 +1,55 @@
+Companies: name, domain
+Projects: project_name, startdate, enddate, milestones
+ProjectMilestones: project_id, milestone_name, milestone_date
+ProjectEmailAddresses:
+Badges: badge_image: string
+GlobalDates: for company program
+FeedbackSources: not sure
+UserProjects: user_id, project_id
+
+UserFeedback: from_user_id, hide, situation, positive, growth_area, references:user
+
+rails g model Feedback from_user:integer user:references hide:boolean situation:text positive:text growth_area:text
+
+type, source, badge, date
+
+next steps
+version strategy
+sitemap
+
+Users: exists already
+Roles: exists already
+
+what's a badge for? over and above
+
+My Projects
+do you set up yourself? no - should be admin
+
+My Profile
+
+My Milestones
+company dates
+project dates
+self-reminders
+
+My Saved Clients (address book)
+should be central control over customer with ability to add
+
+My Feedback
+
+Leave feedback for someone
+Give someone a badge
+Request feedback from peer
+Request feedback from client
+Request feedback from manager
+Leave feedback for myself: something I did well, something I need to improve
+
+*only your manager can see/comment on your page
+
+Defer
+
+#CorporateGoals: goal_name, goal_desc, goal_type, goal_year
+#CorpGoalType
+#FeedbackTypes: not sure i need
+#GoalTypes: training, financial, personal, audacious
+#UserGoals: user_id, goal_type_id, goal_desc, completed, completed_comments
