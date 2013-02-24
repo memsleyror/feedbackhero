@@ -1,7 +1,16 @@
 
-<h1>My View</h1>
+<h1>Feedback I've Received</h1>
 
 <% @feedbacks.each do |feedback| %>
-	<%= feedback.user_id %><%= feedback.situation %><%= feedback.positive %><%= feedback.growth_area %><%= feedback.hide %><%= feedback.from_user %><br />
+
+<%= feedback.created_at.strftime("%b. %d") %><br/>
+
+User ID: <%= feedback.from_user %><%= @from_u %> said about <strong><%= feedback.user.first_name %> <%= feedback.user.last_name %></strong> for <%= feedback.situation %>:<br/>
+Positive(s): <%= feedback.positive %><br />
+Growth Area(s): <%= feedback.growth_area %><br />
+Hide? <%= feedback.hide %> <%= link_to 'Edit', edit_feedback_path(feedback) %><br />
 
 <% end %>
+
+
+<h1>Feedback I've Left</h1>

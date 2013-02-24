@@ -7,4 +7,13 @@ they edit profile
 leave feedback for someone
 view my feedback
 global feed
-validate domain
+defer: validate domain
+
+v1.1
+give someone a badge
+
+v1.2
+request feedback
+
+v1.3
+killer template

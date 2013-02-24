@@ -1,6 +1,7 @@
 class FeedbacksController < ApplicationController
   def index
-  	@feedbacks = Feedback.all
+  	#@feedbacks = Feedback.all
+  	@feedbacks = Feedback.where(:hide => false)
   end
 
   def show
