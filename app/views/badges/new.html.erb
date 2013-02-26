@@ -1,0 +1,19 @@
+<h1>Add a Badge</h1>
+
+
+<%= form_for @badge, :html => {:multipart => true} do |f| %>
+	<h1>Create a New Badge</h1>
+	<p>
+		<label><%= f.label :badge_name %></label>
+		<input type="text" placeholder="Enter badge name here"<%= f.text_field :badge_name %>
+	</p>
+	<p>
+    <%= f.file_field :badge_image %>
+  	</p>
+
+	<p>
+		<button type="submit" class="btn">Create</button>
+	</p>
+
+
+<% end %>

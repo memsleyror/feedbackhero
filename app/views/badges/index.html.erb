@@ -1,0 +1,11 @@
+<h1>Badges Index</h1>
+
+<%= link_to "New Badge", new_badge_path %><br><br>
+
+<% @badges.each do |badge| %>
+	<%= badge.badge_name %>
+	<%= image_tag badge.badge_image_url(:thumb).to_s %>
+	<%= link_to 'Edit', edit_badge_path(badge) %>
+	<%= link_to 'Destroy', badge, :confirm => 'Are you sure?', :method => :delete %><br />
+
+<% end %>
