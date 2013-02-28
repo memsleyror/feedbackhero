@@ -14,6 +14,38 @@ Hide? <%= feedback.hide %> <%= link_to 'Edit', edit_feedback_path(feedback) %><b
 
 
 <h1>Badges I've Received</h1>
+<% @userbadges.each do |userbadge| %>
 
+<%= userbadge.created_at.strftime("%b. %d") %><br/>
+
+	<%= userbadge.sender.first_name %> <%= userbadge.sender.last_name %> 
+	gave <strong><%= userbadge.user.first_name %> <%= userbadge.user.last_name %></strong> a badge for: <%= userbadge.badge.badge_name %> <%= image_tag userbadge.badge.badge_image_url(:thumb).to_s %>
+	 Delete:<%= link_to 'Destroy', userbadge, :confirm => 'Are you sure?', :method => :delete %><br />
+	<br />
+
+<% end %>
 
 <h1>Feedback I've Left</h1>
+
+<% @feedbackleft.each do |feedbackleft| %>
+
+<%= feedbackleft.created_at.strftime("%b. %d") %><br/>
+
+<%= feedbackleft.sender.first_name %> <%= feedbackleft.sender.last_name %> said about <strong><%= feedbackleft.user.first_name %> <%= feedbackleft.user.last_name %></strong> for <%= feedbackleft.situation %>:<br/>
+Positive(s): <%= feedbackleft.positive %><br />
+Growth Area(s): <%= feedbackleft.growth_area %><br /><br />
+
+
+<% end %>
+
+<h1>Badges I've Sent</h1>
+<% @badgesent.each do |userbadgesent| %>
+
+<%= userbadgesent.created_at.strftime("%b. %d") %><br/>
+
+	<%= userbadgesent.sender.first_name %> <%= userbadgesent.sender.last_name %> 
+	gave <strong><%= userbadgesent.user.first_name %> <%= userbadgesent.user.last_name %></strong> a badge for: <%= userbadgesent.badge.badge_name %> <%= image_tag userbadgesent.badge.badge_image_url(:thumb).to_s %>
+	 
+	<br /><br />
+
+<% end %>
