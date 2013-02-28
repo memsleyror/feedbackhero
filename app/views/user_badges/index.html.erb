@@ -1,0 +1,10 @@
+<h1>User Badges</h1>
+
+<% @userbadges.each do |userbadge| %>
+	<%= userbadge.sender.first_name %> <%= userbadge.sender.last_name %> 
+	gave <strong><%= userbadge.user.first_name %> <%= userbadge.user.last_name %></strong> a badge for: <%= userbadge.badge.badge_name %> <%= image_tag userbadge.badge.badge_image_url(:thumb).to_s %>
+	 Delete:<%= link_to 'Destroy', userbadge, :confirm => 'Are you sure?', :method => :delete %><br />
+	<br />
+
+<% end %>
+
