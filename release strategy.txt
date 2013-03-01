@@ -15,6 +15,7 @@ give someone a badge
 v0.2
 specify company
 request feedback
+track requests and whether they've been responded to
 
 v0.3
 bootstrap template
