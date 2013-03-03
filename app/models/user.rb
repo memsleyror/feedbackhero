@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 
   belongs_to :role   
   has_many :feedbacks
+  has_many :requestedfeedbacks
   has_many :user_badges    
 
   # Setup accessible (or protected) attributes for your model

@@ -1,8 +1,6 @@
 Feedbackhero::Application.routes.draw do
   
 
-
-
   devise_for :users, :path_prefix => 'my'
   
   resources :users
@@ -11,6 +9,7 @@ Feedbackhero::Application.routes.draw do
   resources :myview
   resources :badges
   resources :user_badges
+  resources :requestedfeedbacks
 
   get "welcome/index"
 

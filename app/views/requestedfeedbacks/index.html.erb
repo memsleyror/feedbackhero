@@ -1,0 +1,21 @@
+<h1>Requested Feedback</h1>
+
+
+<% @requestedfeedbacks.each do |requestedfeedback| %>
+
+Requested From: <%= requestedfeedback.sender.first_name %> <%= requestedfeedback.sender.last_name %> <br/>
+Email: <%= requestedfeedback.sender.email %> <br/>
+Requester: <strong><%= requestedfeedback.user.first_name %> <%= requestedfeedback.user.last_name %></strong> <br/>
+Email Body: <%= requestedfeedback.request_body %><br/> 
+Sitation: <%= requestedfeedback.situation %><br/>
+Positive(s): <%= requestedfeedback.positive %><br />
+Growth Area(s): <%= requestedfeedback.growth_area %><br />
+Hide: <%= requestedfeedback.hide %><br/>
+Responded To: <%= requestedfeedback.responded_to %><br/>
+Edit: <%= link_to 'Edit', edit_requestedfeedback_path(requestedfeedback) %>
+Delete:<%= link_to 'Destroy', requestedfeedback, :confirm => 'Are you sure?', :method => :delete %><br />
+
+<br />
+
+
+<% end %>

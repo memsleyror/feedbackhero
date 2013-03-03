@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226213054) do
+ActiveRecord::Schema.define(:version => 20130301203056) do
 
   create_table "badges", :force => true do |t|
     t.string   "badge_name"
@@ -32,6 +32,22 @@ ActiveRecord::Schema.define(:version => 20130226213054) do
   end
 
   add_index "feedbacks", ["user_id"], :name => "index_feedbacks_on_user_id"
+
+  create_table "requestedfeedbacks", :force => true do |t|
+    t.integer  "from_user"
+    t.integer  "user_id"
+    t.boolean  "hide"
+    t.text     "situation"
+    t.text     "positive"
+    t.text     "growth_area"
+    t.text     "request_body"
+    t.boolean  "responded_to"
+    t.date     "responded_date"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "requestedfeedbacks", ["user_id"], :name => "index_requestedfeedbacks_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string   "role_name"

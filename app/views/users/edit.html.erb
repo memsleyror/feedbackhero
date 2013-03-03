@@ -1,5 +1,4 @@
 <h1>Edit User</h1>
-<p>Find me in app/views/users/edit.html.erb</p>
 
 
 
@@ -12,7 +11,6 @@
 		<%= f.text_field :last_name %><br/>
 		<%= f.label :email %><br/>
 		<%= f.text_field :email %><br/>
-		<!-- <#%= role_select(:user, :role_id, Role.all, :id, :role_name) %> -->
 		<%= f.label "Role" %><br/>
 		<%= f.collection_select :role_id, Role.all, :id , :role_name %>
 	</p>

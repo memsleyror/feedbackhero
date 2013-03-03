@@ -1,0 +1,34 @@
+<h1>Request Feedback</h1>
+
+
+
+<%= form_for @requestedfeedback do |f| %>
+	<p>
+		<%= f.label "Request Feedback From" %><br/>
+		<%= f.collection_select :from_user, User.all, :id , :last_name %><br>
+		
+		<%= f.label "Email Body" %><br/>
+		<%= f.text_area :request_body %><br/>
+		
+		<!--should probably prepopulate this-->
+		<%= f.label :situation %><br/>
+		<%= f.text_area :situation %><br/>
+
+		<!--won't prepopulate these-->
+		<%= f.label :positive %><br/>
+		<%= f.text_area :positive %><br/>
+		<%= f.label :growth_area %><br/>
+		<%= f.text_area :growth_area %><br/>
+
+		<%= f.hidden_field :user_id, :value => current_user.id %>
+		<%= f.hidden_field :hide, :value => true %>
+		<%= f.hidden_field :responded_to, :value => false %>
+		
+	</p>
+
+	<p>
+		<%= f.submit "Create" %>
+	</p>
+
+
+<% end %>
