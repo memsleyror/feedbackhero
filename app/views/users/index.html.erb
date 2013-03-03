@@ -1,34 +1,38 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>Users</h1>
 
 <%= link_to "New User", new_user_path %><br><br>
-	<table>
-		
-		<!--
-		<tr>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Email</th>
-				<th>Role</th>
-				<th>Role Id</th>
-		</tr>
-	-->
 
-<% @users.each do |user| %>
+<table class="table table-striped table-bordered bootstrap-datatable datatable">
+
+	<thead>
+	  <tr>
+		  <th>First Name</th>
+		  <th>Last Name</th>
+		  <th>Email</th>
+		  <th>Role</th>
+		  <th>Status</th>
+		  <th>Actions</th>
+	  </tr>
+  	</thead>   
+
+	<% @users.each do |user| %>
 	
+	<tbody>
 		<tr>
-				<td><%= user.first_name %></td>
-				<td><%= user.last_name %></td>
-				<td><%= user.email %></td>
-				<td><%= user.role.role_name %></td>
-				<td><%= user.role_id %></td>
+			<td><%= user.first_name %></td>
+			<td><%= user.last_name %></td>
+			<td class="center"><%= user.email %></td>
+			<td class="center"><%= user.role.role_name %></td>
+			<td class="center"><span class="label label-success">Active</span></td>
+			<td class="center">	
 				<% if can? :update, User %>
-					<td><%= link_to 'Edit', edit_user_path(user) %></td>
+					<%= link_to 'Edit', edit_user_path(user), :class => 'btn btn-success' %>
 				<% end %>
 				<% if can? :destroy, User %>
-					<td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+					<%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete, :class => 'btn btn-danger' %>
 				<% end %>
+			</td>	
 		</tr>
 	
-<% end %>	
+	<% end %>	
 </table>
