@@ -1,51 +1,106 @@
 
-<h1>Feedback I've Received</h1>
-
-<% @feedbacks.each do |feedback| %>
-
-<%= feedback.created_at.strftime("%b. %d") %><br/>
-
-<%= feedback.sender.first_name %> <%= feedback.sender.last_name %> said about <strong><%= feedback.user.first_name %> <%= feedback.user.last_name %></strong> for <%= feedback.situation %>:<br/>
-Positive(s): <%= feedback.positive %><br />
-Growth Area(s): <%= feedback.growth_area %><br />
-Hide? <%= feedback.hide %> <%= link_to 'Edit', edit_feedback_path(feedback) %><br />
-
-<% end %>
 
 
-<h1>Badges I've Received</h1>
-<% @userbadges.each do |userbadge| %>
+	<!-- start: Content -->
+	<!--<div id="content" class="span11">
+		<div class="row-fluid">-->
 
-<%= userbadge.created_at.strftime("%b. %d") %><br/>
+			<div class="span7">
+				<h1>My View</h1>
 
-	<%= userbadge.sender.first_name %> <%= userbadge.sender.last_name %> 
-	gave <strong><%= userbadge.user.first_name %> <%= userbadge.user.last_name %></strong> a badge for: <%= userbadge.badge.badge_name %> <%= image_tag userbadge.badge.badge_image_url(:thumb).to_s %>
-	 Delete:<%= link_to 'Destroy', userbadge, :confirm => 'Are you sure?', :method => :delete %><br />
-	<br />
+				<div class="priority high"><span>feedback I've received</span></div>
 
-<% end %>
+				<% @feedbacks.each do |feedback| %>
+				<div class="task high">
+						<div class="desc">
+							<div class="title">
+								<strong><%= feedback.sender.first_name %> <%= feedback.sender.last_name %></strong> said about me for <%= feedback.situation %>:
+							</div>
+							<div>
+								Positive(s): <%= feedback.positive %><br />
+								Growth Area(s): <%= feedback.growth_area %><br />
+								Hide? <%= feedback.hide %> <%= link_to 'Edit', edit_feedback_path(feedback) %><br />
+							</div>
+						</div>
+						<div class="time">
+							<div class="date"><%= feedback.created_at.strftime("%b. %d") %></div>
+						</div>
+				</div>
+				<% end %>
 
-<h1>Feedback I've Left</h1>
+				<div class="priority medium"><span>badges I've received</span></div>
 
-<% @feedbackleft.each do |feedbackleft| %>
+				<% @userbadges.each do |userbadge| %>
+				<div class="task medium">
+						<div class="desc">
+							<div class="title">
+									<strong><%= userbadge.sender.first_name %> <%= userbadge.sender.last_name %></strong> 
+									gave me a badge for:
+							</div>
+							<div>
+								<%= userbadge.badge.badge_name %> <%= image_tag userbadge.badge.badge_image_url(:thumb).to_s %>
+								Delete:<%= link_to 'Destroy', userbadge, :confirm => 'Are you sure?', :method => :delete %>
+							</div>
+						</div>
 
-<%= feedbackleft.created_at.strftime("%b. %d") %><br/>
+						<div class="time">
+								<div class="date"><%= userbadge.created_at.strftime("%b. %d") %></div>
+						</div>
+				</div>
+				<% end %>
 
-<%= feedbackleft.sender.first_name %> <%= feedbackleft.sender.last_name %> said about <strong><%= feedbackleft.user.first_name %> <%= feedbackleft.user.last_name %></strong> for <%= feedbackleft.situation %>:<br/>
-Positive(s): <%= feedbackleft.positive %><br />
-Growth Area(s): <%= feedbackleft.growth_area %><br /><br />
+
+				<div class="priority low"><span>feedback I've left</span></div>
+				<% @feedbackleft.each do |feedbackleft| %>
+				<div class="task low">
+						<div class="desc">
+							<div class="title">
+								I said about <strong><%= feedbackleft.user.first_name %> <%= feedbackleft.user.last_name %></strong> for <%= feedbackleft.situation %>:
+							</div>
+							<div>
+								Positive(s): <%= feedbackleft.positive %><br />
+								Growth Area(s): <%= feedbackleft.growth_area %><br />
+							</div>
+						</div>
+						<div class="time">
+							<div class="date"><%= feedbackleft.created_at.strftime("%b. %d") %></div>
+						</div>
+					</div>
+				<% end %>
 
 
-<% end %>
+				<div class="priority medium"><span>badges I've sent</span></div>
 
-<h1>Badges I've Sent</h1>
-<% @badgesent.each do |userbadgesent| %>
+				<% @badgesent.each do |userbadgesent| %>
+					<div class="task medium">
+						<div class="desc">
+							<div class="title">
+									I gave <strong><%= userbadgesent.user.first_name %> <%= userbadgesent.user.last_name %></strong> a badge for:	
+							</div>
+							<div>
+								<%= userbadgesent.badge.badge_name %> <%= image_tag userbadgesent.badge.badge_image_url(:thumb).to_s %>
+							</div>
+						</div>
+						<div class="time">
+							<div class="date"><%= userbadgesent.created_at.strftime("%b. %d") %></div>
+						</div>
+					</div>
+				<% end %>
 
-<%= userbadgesent.created_at.strftime("%b. %d") %><br/>
+			</div> <!-- span7 -->
 
-	<%= userbadgesent.sender.first_name %> <%= userbadgesent.sender.last_name %> 
-	gave <strong><%= userbadgesent.user.first_name %> <%= userbadgesent.user.last_name %></strong> a badge for: <%= userbadgesent.badge.badge_name %> <%= image_tag userbadgesent.badge.badge_image_url(:thumb).to_s %>
+		<!-- </div> -->
+	<!--</div>--> <!-- row-fluid -->
+
+
+
+
+
+
+
+
+
+
 	 
-	<br /><br />
+	
 
-<% end %>
