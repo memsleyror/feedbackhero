@@ -1,14 +1,36 @@
 <h1>Company Feed</h1>
 
-<%= link_to "Give Feedback", new_feedback_path %><br><br>
-<%= link_to "Request Feedback", new_requestedfeedback_path %><br><br>
-<%= link_to "Give a Badge", new_user_badge_path %><br><br>
+ 
 
-<% @feedbacks.each do |feedback| %>
+<div class="box span6" onTablet="span6" onDesktop="span6">
+	<div class="box-header">
+		<h2><i class="halflings-icon comment"></i><span class="break"></span>Company Feed</h2>
+		<div class="box-icon">
+			<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+			<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+		</div>
+	</div>
 
-User ID: <%= feedback.from_user %> said about <strong><%= feedback.user.first_name %> <%= feedback.user.last_name %></strong> for <%= feedback.situation %>:<br/>
-Positive(s): <%= feedback.positive %><br />
-Growth Area(s): <%= feedback.growth_area %><br /><br />
+	<% @feedbacks.each do |feedback| %>
+	<div class="box-content">
+		<ul class="chat">
+				<li class="left">
+					<!--<img class="avatar" alt="Pic" src="img/avatar.jpg">-->
+					<%= image_tag feedback.sender.profile_pic_url(:thumb).to_s, class: "avatar" do %>
+						<!--<img class="avatar" alt="Pic">-->
+					<% end %>
+					<span class="message"><span class="arrow"></span>
+						<span class="from"><%= feedback.sender.first_name %> <%= feedback.sender.last_name %></span>
+						<span class="time"><%= feedback.created_at.strftime("%b. %d") %></span>
+						<span class="text">
+							said about <strong><%= feedback.user.first_name %> <%= feedback.user.last_name %></strong> for <%= feedback.situation %>:<br/>
+							Positive(s): <%= feedback.positive %><br />
+							Growth Area(s): <%= feedback.growth_area %>
+						</span>
+					</span>	                                  
+				</li>
+		</ul>
+	</div>
+	<% end %>
+</div>	
 
-
-<% end %>

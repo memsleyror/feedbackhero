@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :user_badges    
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :role_id, :id
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :role_id, :id, :profile_pic
   # attr_accessible :title, :body
+  mount_uploader :profile_pic, BadgeUploader
 end

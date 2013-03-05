@@ -8,6 +8,7 @@
 	  <tr>
 		  <th>First Name</th>
 		  <th>Last Name</th>
+		  <th>Pic</th>
 		  <th>Email</th>
 		  <th>Role</th>
 		  <th>Status</th>
@@ -21,6 +22,7 @@
 		<tr>
 			<td><%= user.first_name %></td>
 			<td><%= user.last_name %></td>
+			<td><%= image_tag user.profile_pic_url(:thumb).to_s %></td>
 			<td class="center"><%= user.email %></td>
 			<td class="center"><%= user.role.role_name %></td>
 			<td class="center"><span class="label label-success">Active</span></td>
@@ -36,3 +38,7 @@
 	
 	<% end %>	
 </table>
+
+<br/>
+<br/>
+<br/>

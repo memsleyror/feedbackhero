@@ -13,6 +13,8 @@
 		<%= f.text_field :email %><br/>
 		<%= f.label "Role" %><br/>
 		<%= f.collection_select :role_id, Role.all, :id , :role_name %>
+		<%= f.label "Picture" %><br/>
+		<%= f.file_field :profile_pic %>
 	</p>
 
 	<p>
