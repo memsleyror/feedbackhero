@@ -24,8 +24,8 @@
 						<span class="time"><%= feedback.created_at.strftime("%b. %d") %></span>
 						<span class="text">
 							said about <strong><%= feedback.user.first_name %> <%= feedback.user.last_name %></strong> for <%= feedback.situation %>:<br/>
-							Positive(s): <%= feedback.positive %><br />
-							Growth Area(s): <%= feedback.growth_area %>
+							<span class="label label-success">Positives</span>  <%= feedback.positive %><br />
+							<span class="label label-important">Growth Areas</span>  <%= feedback.growth_area %>
 						</span>
 					</span>	                                  
 				</li>
