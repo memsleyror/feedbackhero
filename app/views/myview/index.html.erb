@@ -2,31 +2,140 @@
 
 
 	<!-- start: Content -->
-	<!--<div id="content" class="span11">
-		<div class="row-fluid">-->
+	
+		<div class="row-fluid">
+			<div class="box span4" onTablet="span6" onDesktop="span4">				
 
-			<div class="span7">
-				<h1>My View</h1>
-
-				<div class="priority high"><span>feedback I've received</span></div>
-
-				<% @feedbacks.each do |feedback| %>
-				<div class="task high">
-						<div class="desc">
-							<div class="title">
-								<strong><%= feedback.sender.first_name %> <%= feedback.sender.last_name %></strong> said about me for <%= feedback.situation %>:
-							</div>
-							<div>
-								Positive(s): <%= feedback.positive %><br />
-								Growth Area(s): <%= feedback.growth_area %><br />
-								Hide? <%= feedback.hide %> <%= link_to 'Edit', edit_feedback_path(feedback) %><br />
-							</div>
-						</div>
-						<div class="time">
-							<div class="date"><%= feedback.created_at.strftime("%b. %d") %></div>
+				<div class="box-header">
+						<h2><i class="halflings-icon list"></i><span class="break"></span>Feedback I've Received</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
 						</div>
 				</div>
+
+				<% @feedbacks.each do |feedback| %>
+				<div class="box-content">
+					<ul class="chat">
+						<li class="left">
+							<!--<img class="avatar" alt="Pic" src="img/avatar.jpg">-->
+							<%= image_tag feedback.sender.profile_pic_url(:thumb).to_s, class: "avatar" do %>
+								<!--<img class="avatar" alt="Pic">-->
+							<% end %>
+							<span class="message"><span class="arrow"></span>
+								<span class="from"><%= feedback.sender.first_name %> <%= feedback.sender.last_name %> on</span>
+								<span class="time"><%= feedback.created_at.strftime("%b. %d") %></span>
+								<span class="text">
+									said about me for <%= feedback.situation %>:<br/>
+									<span class="label label-success">Positives</span>  <%= feedback.positive %><br />
+									<span class="label label-important">Growth Areas</span>  <%= feedback.growth_area %>
+								</span>
+							</span>	                                  
+						</li>
+					</ul>
+				</div>
 				<% end %>
+			</div>	<!--/box span 4-->
+
+			<div class="box span4" onTablet="span6" onDesktop="span4">
+					<div class="box-header">
+						<h2><i class="halflings-icon user"></i><span class="break"></span>Feedback I've Given</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+						</div>
+					</div>
+					<% @feedbackleft.each do |feedbackleft| %>
+					<div class="box-content">
+						<div class="time">
+							<div class="date"><%= feedbackleft.created_at.strftime("%b. %d") %></div>
+						</div>
+						<ul class="dashboard-list">
+							<li>
+								I said about <strong><%= feedbackleft.user.first_name %> <%= feedbackleft.user.last_name %></strong> for <%= feedbackleft.situation %>:</br>
+								Positive(s): <%= feedbackleft.positive %><br />
+								Growth Area(s): <%= feedbackleft.growth_area %><br />
+							</li>	
+						</ul>
+					</div>
+					<% end %>		
+			</div>	<!--/box span 4-->
+
+
+			<div class="box span4 noMargin" onTablet="span12" onDesktop="span4">
+					<div class="box-header">
+						<h2><i class="halflings-icon check"></i><span class="break"></span>Reminders</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
+							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<div class="todo">
+							<ul class="todo-list">
+								<li>
+									Toyota Phase 1 Complete <span class="label label-important">this week</span>
+														<span class="todo-actions">
+															<a href="#"><i class="halflings-icon ok"></i></a>
+															<a href="#" class="todo-remove"><i class="halflings-icon remove"></i></a>
+														</span>
+								</li>
+								<li>New frontend layout <span class="label label-important">today</span>
+													<span class="todo-actions">
+														<a href="#"><i class="halflings-icon ok"></i></a>
+														<a href="#" class="todo-remove"><i class="halflings-icon remove"></i></a>
+													</span>
+								</li>
+								<li>Hire developers <span class="label label-warning">tommorow</span>
+													<span class="todo-actions">
+														<a href="#"><i class="halflings-icon ok"></i></a>
+														<a href="#" class="todo-remove"><i class="halflings-icon remove"></i></a>
+													</span>
+								</li>
+								<li>Windows Phone 8 App <span class="label label-warning">tommorow</span>
+													<span class="todo-actions">
+														<a href="#"><i class="halflings-icon ok"></i></a>
+														<a href="#" class="todo-remove"><i class="halflings-icon remove"></i></a>
+													</span>
+								</li>
+								<li>New frontend layout <span class="label label-success">this week</span>
+													<span class="todo-actions">
+														<a href="#"><i class="halflings-icon ok"></i></a>
+														<a href="#" class="todo-remove"><i class="halflings-icon remove"></i></a>
+													</span>
+								</li>
+								<li>Hire developers <span class="label label-success">this week</span>
+													<span class="todo-actions">
+														<a href="#"><i class="halflings-icon ok"></i></a>
+														<a href="#" class="todo-remove"><i class="halflings-icon remove"></i></a>
+													</span>
+								</li>
+								<li>New frontend layout <span class="label label-info">this month</span>
+													<span class="todo-actions">
+														<a href="#"><i class="halflings-icon ok"></i></a>
+														<a href="#" class="todo-remove"><i class="halflings-icon remove"></i></a>
+													</span>
+								</li>
+								<li>Hire developers <span class="label label-info">this month</span>
+													<span class="todo-actions">
+														<a href="#"><i class="halflings-icon ok"></i></a>
+														<a href="#" class="todo-remove"><i class="halflings-icon remove"></i></a>
+													</span>
+								</li>
+							</ul>
+						</div>	
+					</div>
+				</div><!--last box-->
+
+		</div><!--/row fluid-->
+	
+
+
+			<div class="span7">
+				<h1>My Badges</h1>
+
+				
 
 				<div class="priority medium"><span>badges I've received</span></div>
 
@@ -50,23 +159,6 @@
 				<% end %>
 
 
-				<div class="priority low"><span>feedback I've left</span></div>
-				<% @feedbackleft.each do |feedbackleft| %>
-				<div class="task low">
-						<div class="desc">
-							<div class="title">
-								I said about <strong><%= feedbackleft.user.first_name %> <%= feedbackleft.user.last_name %></strong> for <%= feedbackleft.situation %>:
-							</div>
-							<div>
-								Positive(s): <%= feedbackleft.positive %><br />
-								Growth Area(s): <%= feedbackleft.growth_area %><br />
-							</div>
-						</div>
-						<div class="time">
-							<div class="date"><%= feedbackleft.created_at.strftime("%b. %d") %></div>
-						</div>
-					</div>
-				<% end %>
 
 
 				<div class="priority medium"><span>badges I've sent</span></div>

@@ -4,7 +4,7 @@
 
 <% @badges.each do |badge| %>
 	<%= badge.badge_name %>
-	<%= image_tag badge.badge_image_url(:thumb).to_s %>
+	<%= image_tag badge.badge_image_url(:badgepic).to_s %>
 	<%= link_to 'Edit', edit_badge_path(badge) %>
 	<%= link_to 'Destroy', badge, :confirm => 'Are you sure?', :method => :delete %><br />
 
