@@ -26,7 +26,7 @@ class BadgesController < ApplicationController
 
   def update
 	@badge = Badge.find(params[:id])
-	if @badge.update_attributes(params[:role])
+	if @badge.update_attributes(params[:badge])
 		redirect_to @badge
 	else
 		render :edit

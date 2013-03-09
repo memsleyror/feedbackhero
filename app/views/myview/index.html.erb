@@ -3,6 +3,8 @@
 
 	<!-- start: Content -->
 	
+
+
 		<div class="row-fluid">
 			<div class="box span4" onTablet="span6" onDesktop="span4">				
 
@@ -131,55 +133,48 @@
 		</div><!--/row fluid-->
 	
 
-
-			<div class="span7">
+		<div class="row-fluid">
+		<div class="span7">
 				<h1>My Badges</h1>
 
+				<table>
+					<tr>
+						<% @userbadges.each do |userbadge| %>
+						<td>
+							<%= image_tag userbadge.badge.badge_image_url(:badgepic).to_s %></br>
+							<%= userbadge.badge.badge_name %></br>
+							From: <%= userbadge.sender.first_name %> <%= userbadge.sender.last_name %></br>
+							<%= userbadge.created_at.strftime("%b. %d") %></br>
+							Delete:<%= link_to 'Destroy', userbadge, :confirm => 'Are you sure?', :method => :delete %>
+						</td>	
+						<% end %>
+					</tr>
+				</table>	
+		</div> <!-- span7 -->	
+		</div>
+
 				
-
-				<div class="priority medium"><span>badges I've received</span></div>
-
-				<% @userbadges.each do |userbadge| %>
-				<div class="task medium">
-						<div class="desc">
-							<div class="title">
-									<strong><%= userbadge.sender.first_name %> <%= userbadge.sender.last_name %></strong> 
-									gave me a badge for:
-							</div>
-							<div>
-								<%= userbadge.badge.badge_name %> <%= image_tag userbadge.badge.badge_image_url(:thumb).to_s %>
-								Delete:<%= link_to 'Destroy', userbadge, :confirm => 'Are you sure?', :method => :delete %>
-							</div>
-						</div>
-
-						<div class="time">
-								<div class="date"><%= userbadge.created_at.strftime("%b. %d") %></div>
-						</div>
-				</div>
-				<% end %>
-
-
-
-
+				<!---
 				<div class="priority medium"><span>badges I've sent</span></div>
 
-				<% @badgesent.each do |userbadgesent| %>
+				<#% @badgesent.each do |userbadgesent| %>
 					<div class="task medium">
 						<div class="desc">
 							<div class="title">
-									I gave <strong><%= userbadgesent.user.first_name %> <%= userbadgesent.user.last_name %></strong> a badge for:	
+									I gave <strong><#%= userbadgesent.user.first_name %> <#%= userbadgesent.user.last_name %></strong> a badge for:	
 							</div>
 							<div>
-								<%= userbadgesent.badge.badge_name %> <%= image_tag userbadgesent.badge.badge_image_url(:thumb).to_s %>
+								<#%= userbadgesent.badge.badge_name %> <#%= image_tag userbadgesent.badge.badge_image_url(:thumb).to_s %>
 							</div>
 						</div>
 						<div class="time">
-							<div class="date"><%= userbadgesent.created_at.strftime("%b. %d") %></div>
+							<div class="date"><#%= userbadgesent.created_at.strftime("%b. %d") %></div>
 						</div>
 					</div>
-				<% end %>
+				<#% end %>
+				-->
 
-			</div> <!-- span7 -->
+			
 
 		<!-- </div> -->
 	<!--</div>--> <!-- row-fluid -->
