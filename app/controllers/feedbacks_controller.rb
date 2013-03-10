@@ -1,7 +1,8 @@
 class FeedbacksController < ApplicationController
   def index
   	#@feedbacks = Feedback.all
-  	@feedbacks = Feedback.where(:hide => false)
+  	@feedbacks = Feedback.where(:hide => false).order("created_at DESC")
+  	@userbadges = UserBadge.all
   end
 
   def show

@@ -8,7 +8,7 @@
 		<%= f.collection_select :from_user, User.all, :id , :last_name %><br>
 		
 		<%= f.label "Email Body" %><br/>
-		<%= f.text_area :request_body %><br/>
+		<%= f.text_area :request_body, :placeholder => "I'd appreciate it if you could give me some feedback for the situation described below."  %><br/>
 		
 		<!--should probably prepopulate this-->
 		<%= f.label :situation %><br/>

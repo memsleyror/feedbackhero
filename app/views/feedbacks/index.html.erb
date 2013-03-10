@@ -1,33 +1,126 @@
-
-<div class="box span6" onTablet="span6" onDesktop="span6">
-	<div class="box-header">
-		<h2><i class="halflings-icon comment"></i><span class="break"></span>Company Feed</h2>
-		<div class="box-icon">
-			<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
-			<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+<div class="row-fluid">
+	
+	<!--Company Feedback-->
+	<div class="box span4" onTablet="span6" onDesktop="span4">
+		<div class="box-header">
+			<h2><i class="fa-icon-comment"></i><span class="break"></span>Company Feedback</h2>
+			<div class="box-icon">
+				<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+				<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+			</div>
 		</div>
+
+		<% @feedbacks.each do |feedback| %>
+		<div class="box-content">
+			<ul class="chat">
+					<li class="left">
+						<!--<img class="avatar" alt="Pic" src="img/avatar.jpg">-->
+						<%= image_tag feedback.sender.profile_pic_url(:thumb).to_s, class: "avatar" do %>
+							<!--<img class="avatar" alt="Pic">-->
+						<% end %>
+						<span class="message"><span class="arrow"></span>
+							<span class="from"><%= feedback.sender.first_name %> <%= feedback.sender.last_name %></span>
+							<span class="time"><%= feedback.created_at.strftime("%b. %d") %></span>
+							<span class="text">
+								said about <strong><%= feedback.user.first_name %> <%= feedback.user.last_name %></strong> for <%= feedback.situation %>:<br/>
+								<span class="label label-success">Positives</span>  <%= feedback.positive %><br />
+								<span class="label label-important">Growth Areas</span>  <%= feedback.growth_area %>
+							</span>
+						</span>	                                  
+					</li>
+			</ul>
+		</div>
+		<% end %>
+	</div>	
+
+	<!--User Badges-->
+	<div class="box span4" onTablet="span6" onDesktop="span4">
+		<div class="box-header">
+			<h2><i class="fa-icon-trophy"></i><span class="break"></span>Badges Issued</h2>
+			<div class="box-icon">
+				<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+				<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+			</div>
+		</div>
+
+
+		<% @userbadges.each do |userbadge| %>
+		<div class="box-content">
+	
+	
+			<%= userbadge.sender.first_name %> <%= userbadge.sender.last_name %> 
+			gave <strong><%= userbadge.user.first_name %> <%= userbadge.user.last_name %></strong> a badge for:</br>
+			<strong><%= userbadge.badge.badge_name %></strong> <%= image_tag userbadge.badge.badge_image_url(:thumb).to_s %>
+			 
+			<br />
+
+		</div>
+		<% end %>
 	</div>
 
-	<% @feedbacks.each do |feedback| %>
-	<div class="box-content">
-		<ul class="chat">
-				<li class="left">
-					<!--<img class="avatar" alt="Pic" src="img/avatar.jpg">-->
-					<%= image_tag feedback.sender.profile_pic_url(:thumb).to_s, class: "avatar" do %>
-						<!--<img class="avatar" alt="Pic">-->
-					<% end %>
-					<span class="message"><span class="arrow"></span>
-						<span class="from"><%= feedback.sender.first_name %> <%= feedback.sender.last_name %></span>
-						<span class="time"><%= feedback.created_at.strftime("%b. %d") %></span>
-						<span class="text">
-							said about <strong><%= feedback.user.first_name %> <%= feedback.user.last_name %></strong> for <%= feedback.situation %>:<br/>
-							<span class="label label-success">Positives</span>  <%= feedback.positive %><br />
-							<span class="label label-important">Growth Areas</span>  <%= feedback.growth_area %>
-						</span>
-					</span>	                                  
-				</li>
-		</ul>
-	</div>
-	<% end %>
-</div>	
+	<!--reminders-->
+	<div class="box span4 noMargin" onTablet="span12" onDesktop="span4">
+					<div class="box-header">
+						<h2><i class="halflings-icon check"></i><span class="break"></span>Reminders</h2>
+						<div class="box-icon">
+							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
+							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+						<div class="todo">
+							<ul class="todo-list">
+								<li>
+									Toyota Phase 1 Complete <span class="label label-important">this week</span>
+														<span class="todo-actions">
+															<a href="#"><i class="halflings-icon ok"></i></a>
+															<a href="#" class="todo-remove"><i class="halflings-icon remove"></i></a>
+														</span>
+								</li>
+								<li>ARAMARK Project Ends <span class="label label-important">this week</span>
+													<span class="todo-actions">
+														<a href="#"><i class="halflings-icon ok"></i></a>
+														<a href="#" class="todo-remove"><i class="halflings-icon remove"></i></a>
+													</span>
+								</li>
+								<li>Bob Evans 50% Milestone <span class="label label-warning">next week</span>
+													<span class="todo-actions">
+														<a href="#"><i class="halflings-icon ok"></i></a>
+														<a href="#" class="todo-remove"><i class="halflings-icon remove"></i></a>
+													</span>
+								</li>
+								<li>WFI End of Q1 <span class="label label-warning">next week</span>
+													<span class="todo-actions">
+														<a href="#"><i class="halflings-icon ok"></i></a>
+														<a href="#" class="todo-remove"><i class="halflings-icon remove"></i></a>
+													</span>
+								</li>
+								<li>OT Feedback Blitz <span class="label label-success">this month</span>
+													<span class="todo-actions">
+														<a href="#"><i class="halflings-icon ok"></i></a>
+														<a href="#" class="todo-remove"><i class="halflings-icon remove"></i></a>
+													</span>
+								</li>
+								<li>Multicare Project Ends <span class="label label-success">this month</span>
+													<span class="todo-actions">
+														<a href="#"><i class="halflings-icon ok"></i></a>
+														<a href="#" class="todo-remove"><i class="halflings-icon remove"></i></a>
+													</span>
+								</li>
+								<li>Semi-Annual Performance Review <span class="label label-info">next month</span>
+													<span class="todo-actions">
+														<a href="#"><i class="halflings-icon ok"></i></a>
+														<a href="#" class="todo-remove"><i class="halflings-icon remove"></i></a>
+													</span>
+								</li>
+								
+							</ul>
+						</div>	
+					</div>
+	</div><!--reminders-->
 
+
+
+
+</div><!--row fluid-->

@@ -2,10 +2,16 @@
 
 <%= link_to "New Badge", new_badge_path %><br><br>
 
-<% @badges.each do |badge| %>
-	<%= badge.badge_name %>
-	<%= image_tag badge.badge_image_url(:badgepic).to_s %>
-	<%= link_to 'Edit', edit_badge_path(badge) %>
-	<%= link_to 'Destroy', badge, :confirm => 'Are you sure?', :method => :delete %><br />
 
-<% end %>
+<table>
+	<tr>
+		<% @badges.each do |badge| %>
+			<td>
+			<%= image_tag badge.badge_image_url(:badgepic).to_s %><br />
+			<strong><%= badge.badge_name %></strong><br />
+			<%= link_to 'Edit', edit_badge_path(badge) %><br />
+			<%= link_to 'Destroy', badge, :confirm => 'Are you sure?', :method => :delete %><br />
+			</td>
+		<% end %>
+	</tr>
+</table>		
