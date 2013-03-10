@@ -130,10 +130,10 @@
   								<i class="fa-icon-trophy"></i><span class="hidden-tablet"> Badges</span>
 							<% end %>
 						</li>	
-						<!--<li><%#= link_to user_badges_path do %>
+						<li><%= link_to user_badges_path do %>
   								<i class="fa-icon-trophy"></i><span class="hidden-tablet"> User Badges</span>
-							<#% end %>
-						</li>-->
+							<% end %>
+						</li>
 						<% if can? :update, User %>
 							<li><%= link_to users_path do %>
 	  								<i class="fa-icon-user"></i><span class="hidden-tablet"> Users</span>

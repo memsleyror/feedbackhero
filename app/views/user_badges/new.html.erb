@@ -1,27 +1,36 @@
 <h1>Give a Badge</h1>
 
+<!--<div class="box-content">
+	<form class="form-horizontal">
+		<fieldset>-->
+			<%= form_for @userbadge do |f| %>
+				
+				<!--<div class="control-group">
+					<label class="control-label">To</label>
+					<div class="controls">-->
+						To: <%= f.collection_select :user_id, User.all, :id , :last_name %>
+					<!--</div>
+				</div>	-->
+					<!--<%#= f.label "To" %><br/>-->
+					
+					<!--<%#= f.label "Badge" %><br/>-->
+					
+				<!--<div class="control-group">
+					<label class="control-label">For</label>
+					<div class="controls">-->
+						For: <%= f.collection_select :badge_id, Badge.all, :id , :badge_name %><br>
+					<!--</div>
+				</div>	-->
+					
+				<!--<div class="form-actions">-->
+							<%= f.submit "Create", :class => 'btn btn-primary' %>
+				<!--</div>	-->
+
+					<%= f.hidden_field :from_user, :value => current_user.id %>
+					<%= f.hidden_field :hide, :value => true %>
 
 
-<%= form_for @userbadge do |f| %>
-	<p>
-		<%= f.label "For" %><br/>
-		<%= f.collection_select :user_id, User.all, :id , :last_name %><br>
-		<%= f.label "Badge" %><br/>
-		<%= f.collection_select :badge_id, Badge.all, :id , :badge_name %><br>
-		
-		
-
-		<%= f.hidden_field :from_user, :value => current_user.id %>
-		<%= f.hidden_field :hide, :value => true %>
-
-
-		
-		
-	</p>
-
-	<p>
-		<%= f.submit "Create" %>
-	</p>
-
-
-<% end %>
+			<% end %>
+	<!--</fieldset>
+	</form>
+</div> -->
