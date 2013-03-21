@@ -1,6 +1,14 @@
 Feedbackhero::Application.routes.draw do
   
 
+  get "clientfeedbacks/index"
+
+  get "clientfeedbacks/show"
+
+  get "clientfeedbacks/edit"
+
+  get "clientfeedbacks/new"
+
   devise_for :users, :path_prefix => 'my'
   
   resources :users

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130301203056) do
+ActiveRecord::Schema.define(:version => 20130321205159) do
 
   create_table "badges", :force => true do |t|
     t.string   "badge_name"
@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(:version => 20130301203056) do
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
   end
+
+  create_table "clientfeedbacks", :force => true do |t|
+    t.string   "clientfirst_name"
+    t.string   "clientlast_name"
+    t.string   "client_email"
+    t.integer  "user_id"
+    t.boolean  "hide"
+    t.text     "situation"
+    t.text     "positive"
+    t.text     "growth_area"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "clientfeedbacks", ["user_id"], :name => "index_clientfeedbacks_on_user_id"
 
   create_table "feedbacks", :force => true do |t|
     t.integer  "from_user"
