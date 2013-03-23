@@ -1,14 +1,6 @@
 Feedbackhero::Application.routes.draw do
   
 
-  get "clientfeedbacks/index"
-
-  get "clientfeedbacks/show"
-
-  get "clientfeedbacks/edit"
-
-  get "clientfeedbacks/new"
-
   devise_for :users, :path_prefix => 'my'
   
   resources :users
@@ -18,6 +10,7 @@ Feedbackhero::Application.routes.draw do
   resources :badges
   resources :user_badges
   resources :requestedfeedbacks
+  resources :clientfeedbacks
 
   get "welcome/index"
 
