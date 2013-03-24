@@ -9,17 +9,19 @@ class ClientfeedbacksController < ApplicationController
 
   def edit
   	@clientfeedback = Clientfeedback.find(params[:id])
+  	render :layout => 'clientfeedback'
   end
+
 
   def new
   	@clientfeedback = Clientfeedback.new
   end
 
   def create
-	@clientfeedback = Clientfeedback.new(params[:requestedfeedback])
+	@clientfeedback = Clientfeedback.new(params[:clientfeedback])
 	#@requestedfrom = @requestedfeedback.from_user
 	if @clientfeedback.save
-		UserMailer.request_email(@clientfeedback).deliver
+		UserMailer.clientrequest_email(@clientfeedback).deliver
 		redirect_to @clientfeedback
 	else
 		render :edit
