@@ -9,7 +9,7 @@ class ClientfeedbacksController < ApplicationController
 
   def edit
   	@clientfeedback = Clientfeedback.find(params[:id])
-  	render :layout => 'clientfeedback'
+  	render :layout => 'plain'
   end
 
 
