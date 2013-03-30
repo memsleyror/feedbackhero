@@ -31,6 +31,7 @@ class ClientfeedbacksController < ApplicationController
   def update
 	@clientfeedback = Clientfeedback.find(params[:id])
 	if @clientfeedback.update_attributes(params[:clientfeedback])
+		#redirect_to 'welcome#index'
 		redirect_to @clientfeedback
 	else
 		render :edit

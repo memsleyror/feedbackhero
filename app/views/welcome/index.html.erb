@@ -44,8 +44,9 @@
         </label>
         <button class="btn btn-large btn-primary" type="submit">Sign in</button>-->
         <% if user_signed_in? %>
-				<%= current_user.email %>
-				<!--<%#= redirect_to "/myview/index.html.erb" %>-->
+				You are signed in as <%= current_user.email %><br/>
+				<%= link_to "Go to My View", myview_index_path %>
+				
 			
 		<% else %>
 				<%= link_to "Sign up", new_user_registration_path %> |

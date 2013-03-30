@@ -19,3 +19,17 @@ track requests and whether they've been responded to
 
 v0.3
 bootstrap template
+
+
+v1.0
+redirect after thank you
+login working perfectly
+security tested
+proper badges
+managers
+projects
+auto-emails
+request clarification - maybe just a button for them to come back and edit
+aggregate for presentation
+manager requests about their report
+end of year process

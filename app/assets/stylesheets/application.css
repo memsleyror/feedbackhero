@@ -11,3 +11,7 @@
  *= require_self
  *= require_tree .
  */
+
+.new_feedback textarea {
+	width: 350px;
+}

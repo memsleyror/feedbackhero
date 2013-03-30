@@ -12,7 +12,8 @@
 		<%= f.text_field :client_email %><br/>
 		
 		<%= f.label "Email Body" %><br/>
-		<%= f.text_area :request_body, :placeholder => "I'd appreciate it if you could give me some feedback for the situation described below."  %><br/>
+		<!--<%#= f.text_area :request_body, :placeholder => "I'd appreciate it if you could give me some feedback for the situation described below."  %><br/>-->
+		<%= f.text_area(:request_body, :value => "I'd appreciate it if you could give me some feedback for the situation described below.", :class => "textareastyle") %><br/>
 		
 		<!--should probably prepopulate this-->
 		<%= f.label :situation %><br/>
