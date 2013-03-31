@@ -1,6 +1,30 @@
 Feedbackhero::Application.routes.draw do
   
 
+  get "userprojects/index"
+
+  get "userprojects/show"
+
+  get "userprojects/edit"
+
+  get "userprojects/new"
+
+  get "projectmilestones/index"
+
+  get "projectmilestones/show"
+
+  get "projectmilestones/edit"
+
+  get "projectmilestones/new"
+
+  get "projects/index"
+
+  get "projects/show"
+
+  get "projects/edit"
+
+  get "projects/new"
+
   get "thankyou/index"
 
   devise_for :users, :path_prefix => 'my'

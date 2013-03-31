@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130323150416) do
+ActiveRecord::Schema.define(:version => 20130331150315) do
 
   create_table "badges", :force => true do |t|
     t.string   "badge_name"
@@ -51,6 +51,22 @@ ActiveRecord::Schema.define(:version => 20130323150416) do
 
   add_index "feedbacks", ["user_id"], :name => "index_feedbacks_on_user_id"
 
+  create_table "projectmilestones", :force => true do |t|
+    t.string   "projectmilestone_name"
+    t.date     "projectmilestone_date"
+    t.integer  "project_id"
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+  end
+
+  add_index "projectmilestones", ["project_id"], :name => "index_projectmilestones_on_project_id"
+
+  create_table "projects", :force => true do |t|
+    t.string   "project_name"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "requestedfeedbacks", :force => true do |t|
     t.integer  "from_user"
     t.integer  "user_id"
@@ -84,6 +100,16 @@ ActiveRecord::Schema.define(:version => 20130323150416) do
 
   add_index "user_badges", ["badge_id"], :name => "index_user_badges_on_badge_id"
   add_index "user_badges", ["user_id"], :name => "index_user_badges_on_user_id"
+
+  create_table "userprojects", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "project_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "userprojects", ["project_id"], :name => "index_userprojects_on_project_id"
+  add_index "userprojects", ["user_id"], :name => "index_userprojects_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
