@@ -1,6 +1,8 @@
 Feedbackhero::Application.routes.draw do
   
 
+  get "thankyou/index"
+
   devise_for :users, :path_prefix => 'my'
   
   resources :users

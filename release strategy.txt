@@ -22,8 +22,8 @@ bootstrap template
 
 
 v1.0
-redirect after thank you
-login working perfectly
+redirect after thank you - DONE
+login working perfectly - formatting, logo, remove unnecessary fields
 security tested
 proper badges
 managers
@@ -33,3 +33,4 @@ request clarification - maybe just a button for them to come back and edit
 aggregate for presentation
 manager requests about their report
 end of year process
+coverage stats
