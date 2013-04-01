@@ -1,2 +1,15 @@
-<h1>Userprojects#new</h1>
-<p>Find me in app/views/userprojects/new.html.erb</p>
+<h1>Assign Person to a Project</h1>
+
+
+			<%= form_for @userproject do |f| %>
+				
+				
+						Person: <%= f.collection_select :user_id, User.all, :id , :last_name %>
+					
+						Project: <%= f.collection_select :project_id, Project.all, :id , :project_name %><br>
+					
+							<%= f.submit "Create", :class => 'btn btn-primary' %>
+				
+
+			<% end %>
+	

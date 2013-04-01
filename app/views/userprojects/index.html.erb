@@ -1,2 +1,16 @@
-<h1>Userprojects#index</h1>
-<p>Find me in app/views/userprojects/index.html.erb</p>
+<h1>User Projects</h1>
+
+
+	<%= link_to "New User Project", new_userproject_path %><br><br>
+	
+	<% @userprojects.each do |userproject| %>
+
+	
+	<%= userproject.user.first_name %> <%= userproject.user.last_name %> 
+	is on <strong><%= userproject.project.project_name %></strong> 
+
+	 
+	
+
+
+	<% end %>
