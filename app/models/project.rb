@@ -1,3 +1,5 @@
 class Project < ActiveRecord::Base
-  attr_accessible :project_name
+  has_many :projectmilestones
+  has_many :userprojects
+  attr_accessible :project_name, :project_id
 end

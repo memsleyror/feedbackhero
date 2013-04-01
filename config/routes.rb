@@ -1,31 +1,8 @@
 Feedbackhero::Application.routes.draw do
   
 
-  get "userprojects/index"
 
-  get "userprojects/show"
-
-  get "userprojects/edit"
-
-  get "userprojects/new"
-
-  get "projectmilestones/index"
-
-  get "projectmilestones/show"
-
-  get "projectmilestones/edit"
-
-  get "projectmilestones/new"
-
-  get "projects/index"
-
-  get "projects/show"
-
-  get "projects/edit"
-
-  get "projects/new"
-
-  get "thankyou/index"
+  
 
   devise_for :users, :path_prefix => 'my'
   
@@ -37,8 +14,12 @@ Feedbackhero::Application.routes.draw do
   resources :user_badges
   resources :requestedfeedbacks
   resources :clientfeedbacks
+  resources :projects
+  resources :projectmilestones
+  resources :userprojects
 
   get "welcome/index"
+  get "thankyou/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
