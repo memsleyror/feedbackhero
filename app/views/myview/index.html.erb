@@ -19,12 +19,17 @@
 				<!--
 				<#% @events.each do |event| %>
 				  <#% if event.item_type == 'feedback' %>
+				  	yes
+				  <#% end %>	-->
+					
+					<!--	
 						<%#= render partial: 'feedback', locals: {feedback: event.item } %>
 					<#% eslif event.item_type == 'clientfeedback' %>
 						<%#= render partial: 'feedback', locals: {feedback: event.item } %>
 					<#% end %>
-				<#% end %>
-			-->
+					-->
+				<!--<#% end %>
+				-->
 
 				<% @feedbacks.each do |feedback| %>
 				<div class="box-content">

@@ -6,7 +6,7 @@ class MyviewController < ApplicationController
   	 @feedbackleft = Feedback.where(:from_user => current_user).order("created_at DESC")
   	 @badgesent = UserBadge.where(:from_user => current_user)
      @requestedfeedbacks = u.requestedfeedbacks.order("created_at DESC").all
-    #@events = u.events
+     #@events = u.events
   end
 
   def edit
